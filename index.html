@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MAVRIX Technologies — building modern digital experiences and practical software solutions.">
+  <meta name="theme-color" content="#080A0E">
+  <title>MAVRIX Technologies | Build. Innovate. Transform.</title>
+
+  <style>
+    :root {
+      --bg: #080A0E;
+      --panel: #11151C;
+      --panel-light: #171D26;
+      --silver: #BFC3CA;
+      --white: #F5F6F8;
+      --muted: #A1A7B1;
+      --line: rgba(191, 195, 202, 0.16);
+      --max-width: 1180px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+
+    .container {
+      width: min(var(--max-width), 84%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 10, 14, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-wrap {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+    .logo span { color: var(--silver); }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s ease;
+    }
+    nav a:hover, nav a:focus-visible { color: var(--white); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 610px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(ellipse at 78% 42%, rgba(126, 139, 160, 0.22), transparent 36%),
+        radial-gradient(ellipse at 15% 90%, rgba(75, 85, 103, 0.12), transparent 42%),
+        linear-gradient(115deg, #080A0E 35%, #10151E 100%);
+    }
+    .hero::after {
+      content: "M";
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: clamp(240px, 34vw, 470px);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -35px;
+      color: rgba(191, 195, 202, 0.035);
+      text-shadow: 0 0 70px rgba(191, 195, 202, 0.08);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; padding: 100px 0; max-width: 720px; }
+    .eyebrow {
+      color: var(--silver);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+    h1 {
+      font-size: clamp(46px, 7vw, 82px);
+      line-height: 1.04;
+      letter-spacing: -2px;
+      font-weight: 800;
+    }
+    h1 span {
+      display: block;
+      color: var(--silver);
+    }
+    .hero-copy {
+      color: var(--muted);
+      max-width: 550px;
+      margin: 26px 0 32px;
+      font-size: 16px;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 23px;
+      border: 1px solid var(--silver);
+      border-radius: 4px;
+      background: var(--silver);
+      color: var(--bg);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-3px); background: var(--white); }
+    .btn-secondary { background: transparent; color: var(--white); border-color: var(--line); }
+    .btn-secondary:hover { background: var(--panel-light); }
+
+    section { padding: 88px 0; }
+    .section-kicker {
+      color: var(--silver);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(29px, 4vw, 40px);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.7px;
+    }
+    .muted { color: var(--muted); max-width: 690px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-note {
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, var(--panel), #0C1016);
+      border-radius: 10px;
+      padding: 28px;
+    }
+    .about-note strong {
+      display: block;
+      color: var(--silver);
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .about-note p { color: var(--muted); font-size: 14px; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+    .card {
+      min-height: 215px;
+      padding: 28px;
+      background: linear-gradient(145deg, var(--panel), #0D1117);
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(191, 195, 202, 0.48);
+      background: linear-gradient(145deg, var(--panel-light), #0D1117);
+    }
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--silver);
+      font-size: 19px;
+      margin-bottom: 23px;
+    }
+    .card h3 { font-size: 17px; margin-bottom: 10px; }
+    .card p { color: var(--muted); font-size: 13px; }
+
+    .product-section {
+      background: linear-gradient(120deg, #111720, #0B0E14);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .product-card {
+      margin-top: 30px;
+      padding: clamp(26px, 5vw, 48px);
+      border: 1px solid rgba(191, 195, 202, 0.24);
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at 90% 20%, rgba(191, 195, 202, 0.12), transparent 30%),
+        rgba(8, 10, 14, 0.55);
+      display: grid;
+      grid-template-columns: 1fr 0.7fr;
+      gap: 35px;
+      align-items: center;
+    }
+    .status {
+      display: inline-block;
+      color: var(--silver);
+      border: 1px solid rgba(191, 195, 202, 0.3);
+      border-radius: 30px;
+      padding: 5px 11px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .product-card h3 { font-size: clamp(25px, 4vw, 36px); margin-bottom: 10px; }
+    .product-card p { color: var(--muted); max-width: 560px; }
+    .product-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .feature {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.025);
+      padding: 13px;
+      border-radius: 6px;
+      color: #D5D8DE;
+      font-size: 12px;
+    }
+
+    .contact-panel {
+      padding: 42px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: linear-gradient(120deg, #151B24, #0D1117);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .contact-panel p { color: var(--muted); max-width: 570px; }
+    footer { border-top: 1px solid var(--line); padding: 28px 0; color: #858C98; font-size: 12px; }
+    .footer-wrap { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .footer-tagline { color: var(--silver); letter-spacing: 1px; }
+
+    @media (max-width: 800px) {
+      .about-grid, .product-card { grid-template-columns: 1fr; gap: 28px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .hero::after { right: -5%; opacity: 0.7; }
+    }
+    @media (max-width: 600px) {
+      .container { width: min(90%, var(--max-width)); }
+      .nav-wrap { padding: 16px 0; flex-direction: column; gap: 12px; }
+      nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 12px 18px; }
+      nav a { font-size: 12px; }
+      .hero { min-height: 560px; }
+      .hero-content { padding: 80px 0; }
+      h1 { letter-spacing: -1.5px; }
+      .hero-copy { font-size: 14px; }
+      section { padding: 66px 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .card { min-height: auto; }
+      .contact-panel { padding: 27px; flex-direction: column; align-items: flex-start; }
+      .product-features { grid-template-columns: 1fr 1fr; }
+      .hero::after { right: -22%; top: 55%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav-wrap">
+      <a class="logo" href="#home" aria-label="MAVRIX Technologies home">MAVRIX<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <p class="eyebrow">MAVRIX Technologies</p>
+          <h1>BUILD.<br>INNOVATE.<span>TRANSFORM.</span></h1>
+          <p class="hero-copy">
+            We’re building modern digital experiences and practical software
+            solutions to help businesses move forward.
+          </p>
+          <div class="actions">
+            <a href="#services" class="btn">Explore Our Services</a>
+            <a href="#products" class="btn btn-secondary">Discover BusinessOS</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="section-kicker">Who we are</p>
+          <h2 class="section-title">Technology with a purpose.</h2>
+          <p class="muted">
+            MAVRIX Technologies is an emerging technology venture focused on
+            practical digital solutions for businesses. Our vision is to make
+            technology accessible, useful and impactful.
+          </p>
+        </div>
+        <div class="about-note">
+          <strong>OUR APPROACH</strong>
+          <p>Understand real needs. Build thoughtfully. Keep improving.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <p class="section-kicker">What we’re focused on</p>
+        <h2 class="section-title">Our Services</h2>
+        <p class="muted">Digital capabilities we’re developing for modern businesses.</p>
+
+        <div class="services-grid">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">⌘</div>
+            <h3>Web Development</h3>
+            <p>Modern, responsive websites and landing pages for businesses and startups.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">▧</div>
+            <h3>Software Development</h3>
+            <p>Useful digital tools and custom software shaped around business needs.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">⌁</div>
+            <h3>IT Solutions</h3>
+            <p>Practical technology guidance and digital solutions for everyday workflows.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-section" id="products">
+      <div class="container">
+        <p class="section-kicker">In development</p>
+        <h2 class="section-title">Our Product</h2>
+        <div class="product-card">
+          <div>
+            <span class="status">Upcoming product</span>
+            <h3>MAVRIX BusinessOS</h3>
+            <p>
+              A planned business management platform designed to help simplify
+              products, customers, orders and inventory in one place.
+            </p>
+          </div>
+          <div class="product-features" aria-label="Planned product modules">
+            <div class="feature">Product Catalogue</div>
+            <div class="feature">Customer Records</div>
+            <div class="feature">Order Management</div>
+            <div class="feature">Inventory Tracking</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <p class="section-kicker">Start a conversation</p>
+            <h2 class="section-title">Let’s Connect.</h2>
+            <p>Have a project or business idea? Let’s discuss how technology can help.</p>
+          </div>
+          <!-- Replace this address if your official contact email is different. -->
+          <a class="btn" href="mailto:hello@mavrixtechnologies.com">Contact Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <p>© 2026 MAVRIX Technologies. All rights reserved.</p>
+      <p class="footer-tagline">BUILD. INNOVATE. TRANSFORM.</p>
+    </div>
+  </footer>
+</body>
+</html>
