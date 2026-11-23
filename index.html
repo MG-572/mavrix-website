@@ -49,13 +49,22 @@
       justify-content: space-between;
       gap: 24px;
     }
-    .logo {
-      color: var(--white);
-      text-decoration: none;
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: 3px;
-    }
+   .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.logo img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
     .logo span { color: var(--silver); }
     nav { display: flex; align-items: center; gap: 28px; }
     nav a {
